@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Event</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar blur">
+      <button class="menu-button" onclick="toggleMenu()">☰</button>
+      <div class="nav-items">
+        <a href="#" class="nav-item">Home</a>
+        <a href="#" class="nav-item">Dashboard</a>
+        <a href="#" class="nav-item">Reports</a>
+        <a href="#" class="nav-item">History</a>
+        <a href="#" class="nav-item active">Create Event</a>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content" id="content">
+      <div class="form-section blur" id="form-section">
+        <h1>Create an Event</h1>
+        <p class="subtext">Enter your event details</p>
+
+        <!-- Event Details & Event Cards -->
+        <div class="form-grid">
+          <!-- Event Details Section -->
+          <div class="form-box">
+            <h2>Event Details</h2>
+            <div class="form-row">
+              <div class="input-group">
+                <label for="event-title">Event Name</label>
+                <div class="input-wrapper">
+                  <input type="text" id="event-title" placeholder="Enter event name" maxlength="16">
+                </div>
+                <small style="font-size: x-small;">Event name limited to 16 characters</small>
+              </div>
+
+              <div class="input-group">
+                <label for="event-type">Event Category</label>
+                <div class="dropdown-wrapper">
+                  <select id="event-type">
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="conference">Conference</option>
+                    <option value="workshop">Workshop</option>
+                    <option value="meetup">Meetup</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event Cards Section -->
+          <div class="form-box">
+            <h2>Event Cards</h2>
+            <div class="form-row">
+              <div class="input-group">
+                <label for="event-date">Event Date</label>
+                <div class="input-wrapper">
+                  <input type="date" id="event-date">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="event-venue">Event Location</label>
+                <div class="input-wrapper">
+                  <input type="text" id="event-venue" placeholder="Enter location">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-submit">Create Event</button>
+      </div>
+
+      <!-- Verification Overlay -->
+      <div class="modal-overlay" id="verification-overlay">
+        <div class="modal-container">
+          <div class="input-group">
+              <div class="input-wrapper">
+                  <input type="email" id="user-email" placeholder="Verify Your E-mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your email address'">
+                  <button class="btn-verify" onclick="validateEmail()">Verify</button>
+              </div>
+              <small id="email-feedback"></small>
+          </div>
+  
+          <div class="input-group">
+              <div class="input-wrapper">
+                  <input type="text" id="user-phone" placeholder="Verify Your Mobile">
+                  <button class="btn-verify" onclick="validatePhone()">Verify</button>
+              </div>
+              <small id="phone-feedback"></small>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="verify.js"></script>
+  <script>
+    function toggleMenu() {
+      const navItems = document.querySelector('.nav-items');
+      navItems.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
